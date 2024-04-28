@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env) => ({
   mode: env.WEBPACK_SERVE ? 'development' : 'production',
-  devtool: env.WEBPACK_SERVE ? 'inline-source-map' : false,
+  devtool: env.WEBPACK_SERVE ? 'eval-source-map' : false,
   devServer: env.WEBPACK_SERVE ? {
     static: './dist/',
     client: {
