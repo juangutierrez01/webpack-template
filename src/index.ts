@@ -3,15 +3,16 @@ import Print from './print';
 
 function component(): HTMLElement {
   const element: HTMLDivElement = document.createElement('div');
-  const btn: HTMLButtonElement = document.createElement('button');
 
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  console.log(element.innerHTML);
+  element.appendChild((() => {
+    const btn: HTMLButtonElement = document.createElement('button');
 
-  btn.innerHTML = 'Click me and check the console!';
-  btn.addEventListener('click', () => Print('Hello webpack'));
+    btn.innerHTML = 'Click me and check the console!';
+    btn.addEventListener('click', () => Print('Hello webpack'));
 
-  element.appendChild(btn);
+    return btn;
+  })());
 
   return element;
 }
