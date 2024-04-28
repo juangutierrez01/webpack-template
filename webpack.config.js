@@ -17,6 +17,9 @@ module.exports = (env) => ({
       title: 'Webpack Example',
     }),
   ],
+  resolve: {
+    extensions: ['.ts', '...'],
+  },
   module: {
     rules: [
       {
