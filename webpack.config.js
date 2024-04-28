@@ -11,12 +11,21 @@ module.exports = (env) => ({
     },
     compress: true,
   } : {},
-  entry: './src/index.js',
+  entry: './src/index.ts',
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Webpack Example',
     }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
+    ],
+  },
   output: {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist/'),
